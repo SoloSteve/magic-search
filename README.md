@@ -62,8 +62,8 @@ However, the magic website will show up in their browser history.
 
 ## Installation and Usage
 ### Prerequisites 
-[Node.js](https://nodejs.org/en/download/) & NPM Installed 
-Clone the repo or download its zip (and unzip).
+* [Node.js](https://nodejs.org/en/download/) & npm Installed
+* Clone the repo or download its zip (and unzip).
 
 ### Installing Dependencies
 #### Front End
