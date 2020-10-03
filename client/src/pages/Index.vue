@@ -153,12 +153,16 @@ export default {
   },
   methods: {
     async darken() {
-      await this.$q.fullscreen.request();
+      try {
+        await this.$q.fullscreen.request();
+      } catch (e) {
+        console.warn("This browser does not support fullscreen");
+      }
       this.darkenModal = true;
     },
     search(text) {
       // Can this cause some sort of exploit?
-      window.location.replace(`https://google.com/search?q=${text.replaceAll(" ", "+")}&tbm=isch`);
+      window.location.replace(`https://google.com/search?q=${text.replace(/\s/g, "+")}&tbm=isch`);
     },
     clear() {
       this.loading = false;
@@ -183,7 +187,7 @@ export default {
       this.socket.once("session-joined", () => {
         this.loading = false;
         this.targetIdSelector = false;
-        this.darken().catch(()=>console.error);
+        this.darken().catch(() => console.error);
       });
     },
     sendSearch() {
