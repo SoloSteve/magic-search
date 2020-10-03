@@ -6,9 +6,10 @@ Bootstrap the websocket server instance.
  */
 
 import io from "socket.io";
+import {Server} from "http";
 
-export default (): io.Server => {
-  return io({
+export default (server: Server): io.Server => {
+  return io(server, {
     serveClient: false,
     cookie: false,
     transports: ["websocket", "polling"],
