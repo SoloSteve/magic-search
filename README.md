@@ -57,7 +57,57 @@ Bravo!
 However, the magic website will show up in their browser history. 
 * The Mastermind cannot disconnect from the website at the moment.
 * It is recommended you practice your presentation with the Mastermind ahead of time.
+* It does seem to work even if the phone's screen is locked.
 
+
+## Installation and Usage
+### Prerequisites 
+[Node.js](https://nodejs.org/en/download/) & NPM Installed 
+Clone the repo or download its zip (and unzip).
+
+### Installing Dependencies
+#### Front End
+Go into the client directory (`magic-search/client`) and run:
+```shell script
+$ npm install
+```
+This will download all the build dependencies.
+
+Next we build the front end.
+```shell script
+$ npm run build
+```
+The built files will be inside the `dist` directory.
+
+#### Back End
+Go into the server directory (`magic-search/server`) and run:
+```shell script
+$ npm ci
+```
+This will download only the files needed to run the server.
+
+Next we compile the TypeScript Files:
+```shell script
+$ npm run compile
+```
+
+### Usage
+
+Quickstart: `npm start -- --port 1337 --serve ../client/dist/spa`
+
+After you have everything all set up we can go ahead and run our server.
+Simply run: `$ npm start` or `$ node dist/index.js`.
+
+Options:
+```text
+Options:
+  --serve <root-path>  Enables the static file server at path
+  --port <port>        The server port (default: "1337")
+  -h, --help           display help for command
+```
+
+If you did everything correctly you will see some info and debug logs.
+You can now open up your web browser and surf to your server's URL.
 
 #### Credits
 Icons made by [Freepik](http://www.freepik.com/) from [www.flaticon.com](https://www.flaticon.com/) 
