@@ -23,6 +23,7 @@
             maxlength="7"
             mask="#-#-#-#"
             v-model="pinValue"
+            v-on:keyup.enter="connectToSession"
             prefix="#"
             :error="connectionError"
             error-message="No mastermind with that PIN"
@@ -41,7 +42,7 @@
     </q-dialog>
 
     <!--  Dialog for creating session  -->
-    <q-dialog v-model="mastermindIdSelector" @hide="connectionError=false">
+    <q-dialog v-model="mastermindIdSelector" @hide="connectionError=false" :persistent="loading">
       <q-card style="width: 350px">
         <q-card-section>
           <div class="text-h6">Create Unique Pin</div>
@@ -57,6 +58,7 @@
             prefix="#"
             :error="connectionError"
             error-message="That PIN is taken, chose another"
+            v-on:keyup.enter="createSession"
           />
         </q-card-section>
         <q-card-actions align="center" class="text-primary" vertical>
@@ -103,6 +105,7 @@
             label="Google Image Search"
             class="search-input"
             v-model="searchValue"
+            v-on:keyup.enter="sendSearch"
           />
         </q-card-section>
         <q-card-actions align="center" class="text-primary" vertical>
