@@ -221,8 +221,9 @@ export default {
 <style>
 #selection-section {
   position: absolute;
+  top: 17%;
 
-  height: 50%;
+  height: 60%;
   width: 100%;
 
   padding: 0 10%;

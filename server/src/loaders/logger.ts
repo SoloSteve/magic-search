@@ -10,18 +10,18 @@ import * as winston from "winston";
 import {env} from "process"
 
 const transports = [];
-if (env.NODE_ENV === "development") {
+if (env.NODE_ENV === "production") {
   transports.push(
     new winston.transports.Console({
-      format: winston.format.combine(winston.format.simple(), winston.format.colorize({all: true})),
-      level: "debug"
+      format: winston.format.simple(),
+      level: "info"
     })
   );
 } else {
   transports.push(
     new winston.transports.Console({
-      format: winston.format.simple(),
-      level: "info"
+      format: winston.format.combine(winston.format.simple(), winston.format.colorize({all: true})),
+      level: "debug"
     })
   );
 }
